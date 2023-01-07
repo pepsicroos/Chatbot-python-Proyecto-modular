@@ -8,24 +8,34 @@ class sumapreguntas:
 
 
     def respuesta(self,res):
+        if(res=='NUNCA'):
+            res=1
+        elif(res=='VARIOS DÍAS'):
+            res=2
+        elif(res=='MÁS DE LA MITAD DE LOS DÍAS'):
+            res=3
+        elif(res=='CASI TODOS LOS DÍAS'):
+            res=2
+        
         self.sumatoriapreguntas+=res
         self.preguntas.append(res)
         
         
 
     def diagnostico(self):
+        
         if(self.sumatoriapreguntas<=4):
-            print("Depresion nula o minima, puntaje: "+str(self.sumatoriapreguntas))
+            diag="Depresion nula o minima, puntaje: "+str(self.sumatoriapreguntas)
         elif(self.sumatoriapreguntas>=5 and self.sumatoriapreguntas<=9):
-            print("Depresion leve, puntaje: "+str(self.sumatoriapreguntas))
+            diag="Depresion leve, puntaje: "+str(self.sumatoriapreguntas)
         elif(self.sumatoriapreguntas>=10 and self.sumatoriapreguntas<=14):
-            print("Depresion moderada, puntaje: "+str(self.sumatoriapreguntas))
+            diag="Depresion moderada, puntaje: "+str(self.sumatoriapreguntas)
         elif(self.sumatoriapreguntas>=15 and self.sumatoriapreguntas<=19):
-            print("Depresion moderada, puntaje: "+str(self.sumatoriapreguntas))
+            diag="Depresion moderada, puntaje: "+str(self.sumatoriapreguntas)
         elif(self.sumatoriapreguntas>=20 and self.sumatoriapreguntas<=27):
-            print("Depresion moderada, puntaje: "+str(self.sumatoriapreguntas))
-        else:
-            print("Resultado no valido")
+            diag="Depresion moderada, puntaje: "+str(self.sumatoriapreguntas)
+            
+        return diag
 
     
     def preguntasaBD(self):
